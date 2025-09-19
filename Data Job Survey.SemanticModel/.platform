@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Data Job Survey"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "73260381-0ef2-4bca-a4f8-419e220a7f20"
+  }
+}

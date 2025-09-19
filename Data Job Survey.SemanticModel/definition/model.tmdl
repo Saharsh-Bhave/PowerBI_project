@@ -1,0 +1,30 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-IN
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+/// Errors in queries that were loaded on 18-09-2025 20:41:57.
+queryGroup 'Query Errors - 18-09-2025 20:41:57'
+
+	annotation PBI_QueryGroupOrder = 0
+
+/// Errors in queries that were loaded on 18-09-2025 21:06:56.
+queryGroup 'Query Errors - 18-09-2025 21:06:56'
+
+	annotation PBI_QueryGroupOrder = 1
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["Data Professional Survey","Errors in Data Professional Survey","Errors in Data Professional Survey (2)"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table 'Data Professional Survey'
+ref table DateTableTemplate_e2ae084f-36db-49c2-be1e-fc4d1a1349f1
+ref table LocalDateTable_a41540b6-fbae-41e8-8a03-b010a336b67b
+
+ref cultureInfo en-US
+

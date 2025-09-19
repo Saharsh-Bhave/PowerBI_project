@@ -1,0 +1,46 @@
+expression 'Errors in Data Professional Survey' =
+		let
+		Source = #"Data Professional Survey",
+		  #"Detected Type Mismatches" = let
+		    tableWithOnlyPrimitiveTypes = Table.SelectColumns(Source, Table.ColumnsOfType(Source, {type nullable number, type nullable text, type nullable logical, type nullable date, type nullable datetime, type nullable datetimezone, type nullable time, type nullable duration})),
+		    recordTypeFields = Type.RecordFields(Type.TableRow(Value.Type(tableWithOnlyPrimitiveTypes))),
+		    fieldNames = Record.FieldNames(recordTypeFields),
+		    fieldTypes = List.Transform(Record.ToList(recordTypeFields), each [Type]),
+		    pairs = List.Transform(List.Positions(fieldNames), (i) => {fieldNames{i}, (v) => if v = null or Value.Is(v, fieldTypes{i}) then v else error [Message = "The type of the value does not match the type of the column.", Detail = v], fieldTypes{i}})
+		in
+		    Table.TransformColumns(Source, pairs),
+		  #"Added Index" = Table.AddIndexColumn(#"Detected Type Mismatches", "Row Number" ,1),
+		  #"Kept Errors" = Table.SelectRowsWithErrors(#"Added Index", {"Unique ID", "Email", "Date Taken (America/New_York)", "Time Taken (America/New_York)", "Browser", "OS", "City", "Country", "Referrer", "Time Spent", "Q1 - Which Title Best Fits your Current Role?", "Q2 - Did you switch careers into Data?", "Q3 - Current Yearly Salary (in USD)", "Q4 - What Industry do you work in?", "Q5 - Favorite Programming Language", "Q6 - How Happy are you in your Current Position with the following? (Salary)", "Q6 - How Happy are you in your Current Position with the following? (Work/Life Balance)", "Q6 - How Happy are you in your Current Position with the following? (Coworkers)", "Q6 - How Happy are you in your Current Position with the following? (Management)", "Q6 - How Happy are you in your Current Position with the following? (Upward Mobility)", "Q6 - How Happy are you in your Current Position with the following? (Learning New Things)", "Q7 - How difficult was it for you to break into Data?", "Q8 - If you were to look for a new job today, what would be the most important thing to you?", "Q9 - Male/Female?", "Q10 - Current Age", "Q11 - Which Country do you live in?", "Q12 - Highest Level of Education", "Q13 - Ethnicity"}),
+		  #"Reordered Columns" = Table.ReorderColumns(#"Kept Errors", {"Row Number", "Unique ID", "Email", "Date Taken (America/New_York)", "Time Taken (America/New_York)", "Browser", "OS", "City", "Country", "Referrer", "Time Spent", "Q1 - Which Title Best Fits your Current Role?", "Q2 - Did you switch careers into Data?", "Q3 - Current Yearly Salary (in USD)", "Q4 - What Industry do you work in?", "Q5 - Favorite Programming Language", "Q6 - How Happy are you in your Current Position with the following? (Salary)", "Q6 - How Happy are you in your Current Position with the following? (Work/Life Balance)", "Q6 - How Happy are you in your Current Position with the following? (Coworkers)", "Q6 - How Happy are you in your Current Position with the following? (Management)", "Q6 - How Happy are you in your Current Position with the following? (Upward Mobility)", "Q6 - How Happy are you in your Current Position with the following? (Learning New Things)", "Q7 - How difficult was it for you to break into Data?", "Q8 - If you were to look for a new job today, what would be the most important thing to you?", "Q9 - Male/Female?", "Q10 - Current Age", "Q11 - Which Country do you live in?", "Q12 - Highest Level of Education", "Q13 - Ethnicity"})
+		in
+		  #"Reordered Columns"
+	lineageTag: 957e5899-1783-40c1-80f8-b51745104a57
+	queryGroup: 'Query Errors - 18-09-2025 20:41:57'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Exception
+
+expression 'Errors in Data Professional Survey (2)' =
+		let
+		Source = #"Data Professional Survey",
+		  #"Detected Type Mismatches" = let
+		    tableWithOnlyPrimitiveTypes = Table.SelectColumns(Source, Table.ColumnsOfType(Source, {type nullable number, type nullable text, type nullable logical, type nullable date, type nullable datetime, type nullable datetimezone, type nullable time, type nullable duration})),
+		    recordTypeFields = Type.RecordFields(Type.TableRow(Value.Type(tableWithOnlyPrimitiveTypes))),
+		    fieldNames = Record.FieldNames(recordTypeFields),
+		    fieldTypes = List.Transform(Record.ToList(recordTypeFields), each [Type]),
+		    pairs = List.Transform(List.Positions(fieldNames), (i) => {fieldNames{i}, (v) => if v = null or Value.Is(v, fieldTypes{i}) then v else error [Message = "The type of the value does not match the type of the column.", Detail = v], fieldTypes{i}})
+		in
+		    Table.TransformColumns(Source, pairs),
+		  #"Added Index" = Table.AddIndexColumn(#"Detected Type Mismatches", "Row Number" ,1),
+		  #"Kept Errors" = Table.SelectRowsWithErrors(#"Added Index", {"Unique ID", "Email", "Date Taken (America/New_York)", "Time Taken (America/New_York)", "Time Spent", "Q1 - Which Title Best Fits your Current Role?.1", "Q2 - Did you switch careers into Data?", "Q3 - Current Yearly Salary (in USD)", "Average Salary", "Q4 - What Industry do you work in?.1", "Q5 - Favorite Programming Language.1", "Q6 - How Happy are you in your Current Position with the following? (Salary)", "Q6 - How Happy are you in your Current Position with the following? (Work/Life Balance)", "Q6 - How Happy are you in your Current Position with the following? (Coworkers)", "Q6 - How Happy are you in your Current Position with the following? (Management)", "Q6 - How Happy are you in your Current Position with the following? (Upward Mobility)", "Q6 - How Happy are you in your Current Position with the following? (Learning New Things)", "Q7 - How difficult was it for you to break into Data?", "Q8 - If you were to look for a new job today, what would be the most important thing to you?", "Q9 - Male/Female?", "Q10 - Current Age", "Q11 - Which Country do you live in?.1", "Q12 - Highest Level of Education", "Q13 - Ethnicity"}),
+		  #"Reordered Columns" = Table.ReorderColumns(#"Kept Errors", {"Row Number", "Unique ID", "Email", "Date Taken (America/New_York)", "Time Taken (America/New_York)", "Time Spent", "Q1 - Which Title Best Fits your Current Role?.1", "Q2 - Did you switch careers into Data?", "Q3 - Current Yearly Salary (in USD)", "Average Salary", "Q4 - What Industry do you work in?.1", "Q5 - Favorite Programming Language.1", "Q6 - How Happy are you in your Current Position with the following? (Salary)", "Q6 - How Happy are you in your Current Position with the following? (Work/Life Balance)", "Q6 - How Happy are you in your Current Position with the following? (Coworkers)", "Q6 - How Happy are you in your Current Position with the following? (Management)", "Q6 - How Happy are you in your Current Position with the following? (Upward Mobility)", "Q6 - How Happy are you in your Current Position with the following? (Learning New Things)", "Q7 - How difficult was it for you to break into Data?", "Q8 - If you were to look for a new job today, what would be the most important thing to you?", "Q9 - Male/Female?", "Q10 - Current Age", "Q11 - Which Country do you live in?.1", "Q12 - Highest Level of Education", "Q13 - Ethnicity"})
+		in
+		  #"Reordered Columns"
+	lineageTag: 690518fe-c7e7-4f42-88c3-e5a4f0ab102c
+	queryGroup: 'Query Errors - 18-09-2025 21:06:56'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
