@@ -1,0 +1,127 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "name": "5b05b2e2ae0bea5ecb43",
+  "position": {
+    "x": 941.17647058823525,
+    "y": 207.05882352941177,
+    "z": 7,
+    "height": 244.70588235294119,
+    "width": 337.56862745098039,
+    "tabOrder": 7
+  },
+  "visual": {
+    "visualType": "gauge",
+    "query": {
+      "queryState": {
+        "MaxValue": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Data Professional Survey"
+                        }
+                      },
+                      "Property": "Q6 - How Happy are you in your Current Position with the following? (Work/Life Balance)"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "Sum(Data Professional Survey.Q6 - How Happy are you in your Current Position with the following? (Work/Life Balance))2",
+              "nativeQueryRef": "Max of Q6 - How Happy are you in your Current Position with the following? (Work/Life Balance)"
+            }
+          ]
+        },
+        "MinValue": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Data Professional Survey"
+                        }
+                      },
+                      "Property": "Q6 - How Happy are you in your Current Position with the following? (Work/Life Balance)"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Sum(Data Professional Survey.Q6 - How Happy are you in your Current Position with the following? (Work/Life Balance))1",
+              "nativeQueryRef": "Min of Q6 - How Happy are you in your Current Position with the following? (Work/Life Balance)"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Data Professional Survey"
+                        }
+                      },
+                      "Property": "Q6 - How Happy are you in your Current Position with the following? (Work/Life Balance)"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Sum(Data Professional Survey.Q6 - How Happy are you in your Current Position with the following? (Work/Life Balance))",
+              "nativeQueryRef": "Average of Q6 - How Happy are you in your Current Position with the following? (Work/Life Balance)"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Data Professional Survey"
+                      }
+                    },
+                    "Property": "Q6 - How Happy are you in your Current Position with the following? (Work/Life Balance)"
+                  }
+                },
+                "Function": 1
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Work Life Balance Satisfaction'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

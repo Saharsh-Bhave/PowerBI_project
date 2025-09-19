@@ -1,0 +1,94 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "name": "8e82256b779c208194da",
+  "position": {
+    "x": 0,
+    "y": 59.4861100767111,
+    "z": 5,
+    "height": 300.48112013107914,
+    "width": 417.92805541073955,
+    "tabOrder": 5
+  },
+  "visual": {
+    "visualType": "treemap",
+    "query": {
+      "queryState": {
+        "Group": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Data Professional Survey"
+                    }
+                  },
+                  "Property": "Q11 - Which Country do you live in?.1"
+                }
+              },
+              "queryRef": "Data Professional Survey.Q11 - Which Country do you live in?.1",
+              "nativeQueryRef": "Q11 - Which Country do you live in?.1",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Data Professional Survey"
+                        }
+                      },
+                      "Property": "Average Salary"
+                    }
+                  },
+                  "Function": 2
+                }
+              },
+              "queryRef": "Sum(Data Professional Survey.Average Salary)",
+              "nativeQueryRef": "Count of Average Salary"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Data Professional Survey"
+                  }
+                },
+                "Property": "Q11 - Which Country do you live in?.1"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Count of Average Salary by Country'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
